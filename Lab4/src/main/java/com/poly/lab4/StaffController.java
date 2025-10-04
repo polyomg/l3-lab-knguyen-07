@@ -1,4 +1,4 @@
-package com.poly.java;
+package com.poly.lab4;
 
 import com.poly.java.entity.Staff;
 import org.springframework.stereotype.Controller;
