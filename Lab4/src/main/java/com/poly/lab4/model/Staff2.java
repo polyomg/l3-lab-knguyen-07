@@ -17,7 +17,7 @@ import java.util.Date;
 public class Staff2 {
 
     @NotBlank(message = "Chưa nhập email")
-    @Email(message = "Email không đúng định dạng")
+    @Email(message = "Email không đúng đị")
     private String id;
 
     @NotBlank(message = "Chưa nhập họ và tên")
