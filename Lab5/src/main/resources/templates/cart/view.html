@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+</head>
+<body>
+<h2>🛒 Giỏ hàng của bạn</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Mã</th>
+        <th>Tên sản phẩm</th>
+        <th>Đơn giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.qty}"></td>
+        <td th:text="${item.price * item.qty}"></td>
+        <td>
+            <a th:href="@{'/cart/add'(id=${item.id})}">+</a> |
+            <a th:href="@{'/cart/remove'(id=${item.id})}">Xóa</a>
+        </td>
+    </tr>
+</table>
+
+<p><strong>Tổng số lượng:</strong> <span th:text="${count}"></span></p>
+<p><strong>Tổng tiền:</strong> <span th:text="${amount}"></span></p>
+
+<hr>
+<h3>Thêm sản phẩm vào giỏ:</h3>
+<a href="/cart/add?id=1">Thêm sản phẩm 1</a> |
+<a href="/cart/add?id=2">Thêm sản phẩm 2</a> |
+<a href="/cart/add?id=3">Thêm sản phẩm 3</a> |
+<a href="/cart/clear">Xóa toàn bộ giỏ hàng</a>
+
+</body>
+</html>

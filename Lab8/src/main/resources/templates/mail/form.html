@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Send Mail</title>
+</head>
+<body>
+<h2>Send Mail</h2>
+<p th:text="${message}"></p>
+<form th:action="@{/mail/send}" th:object="${mail}" method="post">
+    From: <input type="text" th:field="*{from}" /><br/>
+    To: <input type="text" th:field="*{to}" /><br/>
+    Cc: <input type="text" th:field="*{cc}" /><br/>
+    Bcc: <input type="text" th:field="*{bcc}" /><br/>
+    Subject: <input type="text" th:field="*{subject}" /><br/>
+    Body: <textarea th:field="*{body}"></textarea><br/>
+    Filenames (paths comma separated): <input type="text" th:field="*{filenames}" /><br/>
+    <button type="submit">Send Now</button>
+</form>
+
+<hr/>
+<form th:action="@{/mail/queue}" th:object="${mail}" method="post">
+    <!-- same fields will be reused from model -->
+    <button type="submit">Push to Queue</button>
+</form>
+</body>
+</html>
