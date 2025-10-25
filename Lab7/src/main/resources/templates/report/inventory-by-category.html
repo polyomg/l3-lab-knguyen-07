@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Báo cáo tồn kho</title>
+</head>
+<body>
+<h2>Báo cáo tồn kho theo loại hàng</h2>
+<table border="1" style="width:100%">
+    <tr>
+        <th>Loại hàng</th>
+        <th>Tổng giá</th>
+        <th>Số sản phẩm</th>
+    </tr>
+    <tr th:each="r : ${items}">
+        <td th:text="${r.group}"></td>
+        <td th:text="${r.sum}"></td>
+        <td th:text="${r.count}"></td>
+    </tr>
+</table>
+</body>
+</html>
